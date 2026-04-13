@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "author": "Nikhil Tej",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-st-nucleo-c031c6",
+      "id": "nucleo",
+      "top": -18.37,
+      "left": 27.82,
+      "attrs": {}
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -10.9, "left": -67.4, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -118.8,
+      "left": 157.4,
+      "attrs": { "color": "yellow" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": 54, "left": 378.2, "attrs": { "color": "green" } },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -109.2,
+      "left": 339.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -72.85,
+      "left": 105.6,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -15.25,
+      "left": 288,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 301.55,
+      "left": 220.8,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "$serialMonitor:TX", "nucleo:PA3", "", [] ],
+    [ "$serialMonitor:RX", "nucleo:PA2", "", [] ],
+    [ "pot1:VCC", "nucleo:3V3.2", "red", [ "v0" ] ],
+    [ "pot1:GND", "nucleo:GND.5", "black", [ "v0" ] ],
+    [ "led2:C", "r3:1", "green", [ "v0" ] ],
+    [ "r3:2", "nucleo:GND.9", "green", [ "v0" ] ],
+    [ "led3:C", "r2:1", "green", [ "v0" ] ],
+    [ "r2:2", "nucleo:GND.6", "green", [ "v0" ] ],
+    [ "led1:C", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "nucleo:GND.5", "green", [ "v0" ] ],
+    [ "led2:A", "nucleo:PA5", "green", [ "v0" ] ],
+    [ "led1:A", "nucleo:PA6", "green", [ "v0" ] ],
+    [ "led3:A", "nucleo:PA7", "green", [ "v0" ] ],
+    [ "pot1:SIG", "nucleo:A0", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
